@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Hyperstack",
+      "database": "hyperstack_db",
+      "username": "hyper",
+      "password": "pass123321"
+    }
+  ]
+}
