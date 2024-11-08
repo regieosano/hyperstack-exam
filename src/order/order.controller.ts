@@ -1,20 +1,17 @@
-import { Body, Controller, Get, Post, Param } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { OrderService } from "./order.service";
 
-@Controller("order")
+@Controller("orders")
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
-  // @Post()
-  // async createOrder(@Body() body: any) {
-  //   return await this.orderService.createOrder(
-  //     body.customerId,
-  //     body.orderItems,
-  //   );
-  // }
+  @Post()
+  async createOrder(@Body() body: { customerId: number; products: number[] }) {
+    return await this.orderService.createOrder(body.customerId, body.products);
+  }
 
   @Get(":id")
-  async getOrderById(@Param("id") id: number) {
-    return await this.orderService.getOrderById(id);
+  async getOrderById(@Param("id") orderId: number) {
+    return await this.orderService.getOrderById(orderId);
   }
 }

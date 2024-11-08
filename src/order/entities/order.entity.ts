@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { OrderItem } from './order-item.entity';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { OrderProduct } from "./order-product.entity";
 
 @Entity()
 export class Order {
@@ -9,6 +9,6 @@ export class Order {
   @Column()
   customerId: number;
 
-  @OneToMany(() => OrderItem, orderItem => orderItem.order)
-  items: OrderItem[];
+  @OneToMany(() => OrderProduct, orderProduct => orderProduct.order)
+  products: OrderProduct[];
 }
